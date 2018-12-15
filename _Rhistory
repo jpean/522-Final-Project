@@ -1,0 +1,512 @@
+Testdata$Month=NULL
+testdata<-ts(Testdata,frequency=12,start = c(2004,1))
+testdata
+plot(testdata)
+test2data<-testdata
+models<-list
+models<-list()
+Otherdata <- read.csv("~/Downloads/Test Data - Copy of 0.csv")
+View(Otherdata)
+Otherdata$Month=NULL
+otherdata<-ts(Otherdata,frequency=12,start = c(2004,1))
+otherdata
+models$lm1<-tslm(Behavioral.Economics~data.science)
+models$lm1<-tslm(otherdata$Behavioral.Economics~otherdata$data.science)
+?tsm
+?tslm
+models$lm1<-tslm(Behavioral.Economics~data.science, otherdata)
+summary(models$lm1)
+plot.ts(otherdata$Behavioral.Economics)
+plot.ts(otherdata,Behavioral.Economics)
+plot.ts(otherdata)
+plot.ts(Behavioral.Economics,data=otherdata)
+otherdata$Behavioral.Economics
+otherdata
+Projdata <- read.csv("~/Downloads/Project Data - Sheet1.csv")
+View(Projdata)
+projdata<-ts(Projdata,frequency = 12,start=c(2004,1))
+plot.ts(projdata)
+plot.ts(testdata)
+decomptest<-decompose(testdata)
+plot(decomptest)
+projdatatest<-projdata
+pdtd<-decompose(projdatatest)
+plot(pdtd)
+pdtd
+plot(Behavioral.Science,data=pdtd)
+testing<-cor(projdata)
+cor
+testing
+library(corrplot)
+corrplot(testing,method='circle')
+?subset.ts
+Projdata <- read.csv("~/Downloads/Project Data - Sheet1.csv")
+Projdata <- ts(Projdata,frequency = 12,start=c(2004,1))
+BSdata <- subset.ts(Behavioral.Science,data=Projdata)
+trend<-gtrends(c("Behavioral Science"),time="all")
+library(gtrendsR)
+trend<-gtrends(c("Behavioral Science"),time="all")
+BSdata <- subset.ts(Behavioral.Science,data=Projdata)
+trend<-ts(trend$interest_over_time)
+trend
+trend<-gtrends(c("Behavioral Science"),time="all")
+trend
+trend$interest_over_time
+trend$interest_over_time$hits
+trend<-ts(trend$interest_over_time$hits)
+test<-decompose(trend)
+plot(trend)
+?decompose
+test<-decompose(trend)
+rm(trend)
+library(ggplot2)
+library(gtrendsR)
+library(corrplot)
+Projdata <- read.csv("~/Downloads/Project Data - Sheet1.csv")
+Projdata <- ts(Projdata,frequency = 12,start=c(2004,1))
+BSTrend <- gtrends(c("Behavioral Science"),time="all")
+BSTrend <- ts(BSTrend$interest_over_time$hits,frequency = 12,start=c(2004,1))
+Projdata
+Projdata$data.science
+plot(Projdata)
+plot(Projdata, title = "Trends For All Search Terms")
+?plot
+plot(Projdata, main = "Trends For All Search Terms")
+BSTrend
+test<-decompose(BSTrend)
+test$seasonal
+test$seasonal$2004
+plot(test$seasonal)
+test$x
+test$type
+test$figure
+testing<-subset.ts(test,season=2)
+?subset.ts
+??subset.ts
+library(forecast)
+testing<-subset.ts(test,season=2)
+?subset.ts
+testing<-subset.ts(test,season=4)
+?gtrendsr
+?gtrends
+BSSeason <- gtrends(c("Behavioral Science"),time="2004-01 2009-12")
+BSSeason <- ts(BSSeason$interest_over_time$hits,frequency = 12,start=c(2004,1))
+BSSeason <- gtrends(c("Behavioral Science"),time="2004-1 2009-12")
+BSSeason <- gtrends(c("Behavioral Science"),time="2004-1-01 2009-12-31")
+BSSeason <- ts(BSSeason$interest_over_time$hits,frequency = 12,start=c(2004,1))
+decompseason<- decompose(BSSeason)
+plot(decompseason$seasonal)
+BSSeason <- gtrends(c("Behavioral Science"),time="2004-1-01 2007-12-31")
+BSSeason <- ts(BSSeason$interest_over_time$hits,frequency = 12,start=c(2004,1))
+decompseason<- decompose(BSSeason)
+plot(decompseason$seasonal)
+BSSeason <- gtrends(c("Behavioral Science"),time="2004-1-01 2007-12-31")
+BSSeason <- ts(BSSeason$interest_over_time$hits,frequency = 12,start=c(2004,1))
+BSSeason <- gtrends(c("Behavioral Science"),time="2004-1-01 2007-12-31")
+View(BSSeason)
+BSSeason <- gtrends(c("Behavioral Science"),time="2004-1-01 2009-12-31")
+BSSeason <- ts(BSSeason$interest_over_time$hits,frequency = 12,start=c(2004,1))
+BSSeason <- gtrends(c("Behavioral Science"),time="2006-1-01 2009-12-31")
+BSSeason <- ts(BSSeason$interest_over_time$hits,frequency = 12,start=c(2004,1))
+BSSeason <- ts(BSSeason$interest_over_time$hits,frequency = 12,start=c(2006,1))
+BSSeason <- gtrends(c("Behavioral Science"),time="2006-1-01 2009-12-31")
+BSSeason <- ts(BSSeason$interest_over_time$hits,frequency = 12,start=c(2006,1))
+BSSeason <- gtrends(c("Behavioral Science"),time="2004-1-01 2008-12-31")
+BSSeason <- ts(BSSeason$interest_over_time$hits,frequency = 12,start=c(2004,1))
+bihai<-c(47.12,46.75,46.81,47.12,46.67,47.43,46.44,46.64,48.07,48.34,48.15,50.26,50.12,46.34,46.94,48.38)
+redcarib<-c(41.90,42.01,41.93,43.09,41.47,41.69,39.78,40.57,39.63,42.18,40.66,37.87,39.16,37.40,38.20,38.07,38.10,37.97,38.79,38.23,38.87,37.78,38.01)
+yelcarib<-c(36.78,37.02,36.52,36.11,36.03,35.45,38.13,37.10,35.17,36.82,36.66,35.68,36.03,35.57,34.63)
+allflower<-c(bihai,redcarib,yelcarib)
+bihai<-matrix(bihai,16,2)
+bihai[,2]<-"Bihai"
+redcarib<-matrix(redcarib,23,2)
+redcarib[,2]<-"Red Caribaea"
+yelcarib<-matrix(yelcarib,15,2)
+yelcarib[,2]<-"Yellow Caribaea"
+flowers<-data.frame(rbind(bihai,redcarib,yelcarib))
+names(flowers)[1]<-"Length"
+names(flowers)[2]<-"Flower"
+flowers
+attach(flowers)
+boxplot(Length~Flower,main="Flowers")
+boxplot(Length)
+plot(Length)
+plot(Length~Flower)
+boxplot(Length~Flower)
+library(ggplot2)
+p<-ggplot(flowers,aes(x=Length,y=Flower))+geom_boxplot()
+p
+p<-ggplot(flowers,aes(y=Length,x=Flower))+geom_boxplot()
+p
+boxplot(as.numeric(Length)~Flower)
+MyData <- read.csv("~/Downloads/NewData.csv")
+MyData$reportavg<-(MyData$report2+MyData$report3+MyData$report4+MyData$report5+MyData$report6+MyData$report7)/6
+MyData$reportavg<-(MyData$report2+MyData$report3+MyData$report4+MyData$report5+MyData$report6+MyData$report7)/6
+MyData$rollavg<-(MyData$Roll.2A+MyData$Roll.2B+MyData$Roll.3A+MyData$Roll.3B+MyData$Roll.4A+MyData$Roll.4B+MyData$Roll.5A+MyData$Roll.5B+MyData$Roll.6A+MyData$Roll.6B+MyData$Roll.7A+MyData$Roll.7B)/6
+MyData$difference1<-(MyData$report1-(MyData$Roll.1A+MyData$Roll.1B))
+MyData$difference2<-(MyData$report2-(MyData$Roll.2A+MyData$Roll.2B))
+MyData$difference3<-(MyData$report3-(MyData$Roll.3A+MyData$Roll.3B))
+MyData$difference4<-(MyData$report4-(MyData$Roll.4A+MyData$Roll.4B))
+MyData$difference6<-(MyData$report6-(MyData$Roll.6A+MyData$Roll.6B))
+MyData$difference7<-(MyData$report7-(MyData$Roll.7A+MyData$Roll.7B))
+MyData$TotalCheating<-(MyData$difference2+MyData$difference3+MyData$difference4+MyData$difference5+MyData$difference6+MyData$difference7)
+Control<-subset.data.frame(MyData,MyData$teamID==1|MyData$teamID==4|MyData$teamID==6|MyData$teamID==10|MyData$teamID==13|MyData$teamID==14|MyData$teamID==19|MyData$teamID==22|MyData$teamID==25|MyData$teamID==28|MyData$teamID==31|MyData$teamID==34|MyData$teamID==34|MyData$teamID==37|MyData$teamID==40|MyData$teamID==43|MyData$teamID==48|MyData$teamID==49|MyData$teamID==52)
+LowCheat<-subset.data.frame(MyData,MyData$teamID==2|MyData$teamID==5|MyData$teamID==8|MyData$teamID==11|MyData$teamID==15|MyData$teamID==16|MyData$teamID==20|MyData$teamID==23|MyData$teamID==26|MyData$teamID==29|MyData$teamID==32|MyData$teamID==35|MyData$teamID==38|MyData$teamID==41|MyData$teamID==44|MyData$teamID==47|MyData$teamID==50|MyData$teamID==53)
+HighCheat<-subset.data.frame(MyData,MyData$teamID==3|MyData$teamID==7|MyData$teamID==9|MyData$teamID==12|MyData$teamID==17|MyData$teamID==18|MyData$teamID==19|MyData$teamID==21|MyData$teamID==24|MyData$teamID==27|MyData$teamID==30|MyData$teamID==33|MyData$teamID==36|MyData$teamID==39|MyData$teamID==42|MyData$teamID==45|MyData$teamID==46|MyData$teamID==51|MyData$teamID==54)
+Control$Condition<-"Control"
+LowCheat$Condition<-"Low Cheat"
+HighCheat$Condition<-"High Cheat"
+ExpData<-rbind(Control,LowCheat,HighCheat)
+View(Control)
+View(HighCheat)
+View(LowCheat)
+View(MyData)
+vdata<-read.csv("~/Downloads/Leadernew.csv")
+View(vdata)
+kruskal.test(vdata$follower_cheat~vdata$leader_cheat)
+wilcox.test(vdata$follower_cheat~vdata$condition)
+vdata1<-subset.data.frame(vdata,condition==1)
+vdata2<-subset.data.frame(vdata,condition==2)
+wilcox.test(vdata1$follower_cheat,vdata2$follower_cheat)
+vdata3<-subset.data.frame(vdata,condition==3)
+wilcox.test(vdata1$follower_cheat,vdata3$follower_cheat)
+wilcox.test(vdata2$follower_cheat,vdata3$follower_cheat)
+plotmeans(vdata$follower_cheat~vdata$leader_cheat, bars=TRUE)
+install.packages("gplots")
+library("gplots")
+plotmeans(vdata$follower_cheat~vdata$leader_cheat, bars=TRUE)
+plotmeans(vdata$follower_cheat~vdata$leader_cheat, bars=TRUE, main="Variance Between Amount Leader Cheats", xlab="Amount Leader Cheats",ylab = "Amount Followers Cheat")
+plotmeans(vdata$follower_cheat~vdata$leader_cheat, bars=TRUE, main="Variance Between Amount Leader Cheats", xlab="Amount Leader Cheats",ylab = "Amount Followers Cheat")
+cheatvdata<-subset.data.frame(vdata,follower_cheat!=0)
+MyData <- read.csv("~/Downloads/NewData.csv")
+Control<-subset.data.frame(MyData,MyData$teamID==1|MyData$teamID==4|MyData$teamID==6|MyData$teamID==10|MyData$teamID==13|MyData$teamID==14|MyData$teamID==19|MyData$teamID==22|MyData$teamID==25|MyData$teamID==28|MyData$teamID==31|MyData$teamID==34|MyData$teamID==34|MyData$teamID==37|MyData$teamID==40|MyData$teamID==43|MyData$teamID==48|MyData$teamID==49|MyData$teamID==52)
+LowCheat<-subset.data.frame(MyData,MyData$teamID==2|MyData$teamID==5|MyData$teamID==8|MyData$teamID==11|MyData$teamID==15|MyData$teamID==16|MyData$teamID==20|MyData$teamID==23|MyData$teamID==26|MyData$teamID==29|MyData$teamID==32|MyData$teamID==35|MyData$teamID==38|MyData$teamID==41|MyData$teamID==44|MyData$teamID==47|MyData$teamID==50|MyData$teamID==53)
+HighCheat<-subset.data.frame(MyData,MyData$teamID==3|MyData$teamID==7|MyData$teamID==9|MyData$teamID==12|MyData$teamID==17|MyData$teamID==18|MyData$teamID==19|MyData$teamID==21|MyData$teamID==24|MyData$teamID==27|MyData$teamID==30|MyData$teamID==33|MyData$teamID==36|MyData$teamID==39|MyData$teamID==42|MyData$teamID==45|MyData$teamID==46|MyData$teamID==51|MyData$teamID==54)
+Control$Condition<-"Control"
+LowCheat$Condition<-"Low Cheat"
+HighCheat$Condition<-"High Cheat"
+Control$teamID
+controlprize<-Control$teamID
+test<-unique(controlprize)
+test
+cprize<-unique(Control$teamID)
+lprize<-unique(LowCheat$teamID)
+hprize<-unique(HighCheat$teamID)
+cprize
+cfirst<-rep(43)
+cfirst
+cfirst<-c(rep(43))
+cfirst<-rep(43,100)
+csecond<-rep(40,50)
+cthird<-rep(10,20)
+cprize<-c(cprize,cfirst,csecond,cthird)
+sample(cprize,1)
+MyData <- read.csv("~/Downloads/NewData.csv")
+Control<-subset.data.frame(MyData,MyData$teamID==1|MyData$teamID==4|MyData$teamID==6|MyData$teamID==10|MyData$teamID==13|MyData$teamID==14|MyData$teamID==19|MyData$teamID==22|MyData$teamID==25|MyData$teamID==28|MyData$teamID==31|MyData$teamID==34|MyData$teamID==34|MyData$teamID==37|MyData$teamID==40|MyData$teamID==43|MyData$teamID==48|MyData$teamID==49|MyData$teamID==52)
+LowCheat<-subset.data.frame(MyData,MyData$teamID==2|MyData$teamID==5|MyData$teamID==8|MyData$teamID==11|MyData$teamID==15|MyData$teamID==16|MyData$teamID==20|MyData$teamID==23|MyData$teamID==26|MyData$teamID==29|MyData$teamID==32|MyData$teamID==35|MyData$teamID==38|MyData$teamID==41|MyData$teamID==44|MyData$teamID==47|MyData$teamID==50|MyData$teamID==53)
+HighCheat<-subset.data.frame(MyData,MyData$teamID==3|MyData$teamID==7|MyData$teamID==9|MyData$teamID==12|MyData$teamID==17|MyData$teamID==18|MyData$teamID==19|MyData$teamID==21|MyData$teamID==24|MyData$teamID==27|MyData$teamID==30|MyData$teamID==33|MyData$teamID==36|MyData$teamID==39|MyData$teamID==42|MyData$teamID==45|MyData$teamID==46|MyData$teamID==51|MyData$teamID==54)
+cprize<-unique(Control$teamID)
+cfirst<-rep(43,100)
+csecond<-rep(40,50)
+cthird<-rep(10,20)
+cprize<-c(cprize,cfirst,csecond,cthird)
+ControlWinner<-sample(cprize,1)
+lprize<-unique(LowCheat$teamID)
+lfirst<-rep(47,100)
+lsecond<-rep(23,50)
+lthird<-rep(44,20)
+lprize<-c(lprize,lfirst,lsecond,lthird)
+LowCheatWinner<-sample(lprize,1)
+hprize<-unique(HighCheat$teamID)
+hfirst<-rep(46,100)
+hsecond<-rep(25,50)
+hthird<-rep(9,20)
+hprize<-c(hprize,hfirst,hsecond,hthird)
+ControlWinner
+LowCheatWinner
+HighCheatWinner
+HighCheatWinner<-sample(hprize,1)
+HighCheatWinner
+winners<-c(40,47,46)
+sample(winners,1)
+MyData <- read.csv("~/Downloads/NewData.csv")
+vdata<-read.csv("~/Downloads/Leadernew.csv")
+cheatvdata<-subset.data.frame(vdata,follower_cheat!=0)
+vdata1<-subset.data.frame(vdata,condition==1)
+vdata2<-subset.data.frame(vdata,condition==2)
+vdata3<-subset.data.frame(vdata,condition==3)
+cheatvdata1<-subset.data.frame(cheatvdata,condition==1)
+cheatvdata2<-subset.data.frame(cheatvdata,condition==2)
+cheatvdata3<-subset.data.frame(cheatvdata,condition==3)
+MyData$reportavg<-(MyData$report2+MyData$report3+MyData$report4+MyData$report5+MyData$report6+MyData$report7)/6
+MyData$rollavg<-(MyData$Roll.2A+MyData$Roll.2B+MyData$Roll.3A+MyData$Roll.3B+MyData$Roll.4A+MyData$Roll.4B+MyData$Roll.5A+MyData$Roll.5B+MyData$Roll.6A+MyData$Roll.6B+MyData$Roll.7A+MyData$Roll.7B)/6
+MyData$CheatTotal<-MyData$reportavg-MyData$rollavg
+MyData$difference1<-(MyData$report1-(MyData$Roll.1A+MyData$Roll.1B))
+MyData$difference2<-(MyData$report2-(MyData$Roll.2A+MyData$Roll.2B))
+MyData$difference3<-(MyData$report3-(MyData$Roll.3A+MyData$Roll.3B))
+MyData$difference4<-(MyData$report4-(MyData$Roll.4A+MyData$Roll.4B))
+MyData$difference5<-(MyData$report5-(MyData$Roll.5A+MyData$Roll.5B))
+MyData$difference6<-(MyData$report6-(MyData$Roll.6A+MyData$Roll.6B))
+MyData$difference7<-(MyData$report7-(MyData$Roll.7A+MyData$Roll.7B))
+MyData$TotalCheating<-(MyData$difference2+MyData$difference3+MyData$difference4+MyData$difference5+MyData$difference6+MyData$difference7)
+Control<-subset.data.frame(MyData,MyData$teamID==1|MyData$teamID==4|MyData$teamID==6|MyData$teamID==10|MyData$teamID==13|MyData$teamID==14|MyData$teamID==19|MyData$teamID==22|MyData$teamID==25|MyData$teamID==28|MyData$teamID==31|MyData$teamID==34|MyData$teamID==34|MyData$teamID==37|MyData$teamID==40|MyData$teamID==43|MyData$teamID==48|MyData$teamID==49|MyData$teamID==52)
+LowCheat<-subset.data.frame(MyData,MyData$teamID==2|MyData$teamID==5|MyData$teamID==8|MyData$teamID==11|MyData$teamID==15|MyData$teamID==16|MyData$teamID==20|MyData$teamID==23|MyData$teamID==26|MyData$teamID==29|MyData$teamID==32|MyData$teamID==35|MyData$teamID==38|MyData$teamID==41|MyData$teamID==44|MyData$teamID==47|MyData$teamID==50|MyData$teamID==53)
+HighCheat<-subset.data.frame(MyData,MyData$teamID==3|MyData$teamID==7|MyData$teamID==9|MyData$teamID==12|MyData$teamID==17|MyData$teamID==18|MyData$teamID==19|MyData$teamID==21|MyData$teamID==24|MyData$teamID==27|MyData$teamID==30|MyData$teamID==33|MyData$teamID==36|MyData$teamID==39|MyData$teamID==42|MyData$teamID==45|MyData$teamID==46|MyData$teamID==51|MyData$teamID==54)
+Control$Condition<-"Control"
+LowCheat$Condition<-"Low Cheat"
+HighCheat$Condition<-"High Cheat"
+ExpData<-rbind(Control,LowCheat,HighCheat)
+LeaderCheated<-subset.data.frame(ExpData, ExpData$leadercheat=="Yes")
+LeaderNoCheat<-subset.data.frame(ExpData, ExpData$leadercheat=="No")
+cheaters<-subset.data.frame(ExpData,ExpData$CheatTotal!=0)
+noncheaters<-subset.data.frame(ExpData,ExpData$CheatTotal==0)
+library(ggplot2)
+library(car)
+library(gplots)
+?pairwise.t.test
+pairwise.t.test(ExpData$reportavg,factor(ExpData$Condition))
+summary(pairwise.t.test(ExpData$reportavg,factor(ExpData$Condition)))
+t.test(Control$reportavg,HighCheat$reportavg,equal.var=TRUE)
+pairwise.t.test(ExpData$reportavg,factor(ExpData$Condition),paired=TRUE)
+pairwise.t.test(ExpData$reportavg,factor(ExpData$Condition),method="None")
+pairwise.t.test(ExpData$reportavg,factor(ExpData$Condition),method="none")
+pairwise.t.test(ExpData$reportavg,factor(ExpData$Condition),method=none)
+pairwise.t.test(ExpData$reportavg,factor(ExpData$Condition),p.adjust.method=none)
+pairwise.t.test(ExpData$reportavg,factor(ExpData$Condition),p.adjust.method="none")
+t.test(Control$reportavg,HighCheat$reportavg,equal.var=TRUE)
+?pairwise.wilcox.test
+pairwise.t.test(ExpData$reportavg,ExpData$Condition,p.adjust.method="none")
+library(ggplot2)
+library(gtrendsR)
+library(corrplot)
+Projdata <- read.csv("~/Downloads/Project Data - Sheet1.csv")
+TSdata <- ts(Projdata,frequency = 12,start=c(2004,1))
+BSTrend <- gtrends(c("Behavioral Science"),time="all")
+BSTrend <- ts(BSTrend$interest_over_time$hits,frequency = 12,start=c(2004,1))
+BSSeason <- gtrends(c("Behavioral Science"),time="2004-1-01 2009-12-31")
+BSSeason <- ts(BSSeason$interest_over_time$hits,frequency = 12,start=c(2004,1))
+decompBS <- decompose(BSTrend)
+plot(decompBS)
+decompBS$seasonal$time
+head(decompBS)
+unique(decompBS$seasonal)
+plot(unique(decompBS$seasonal))
+plot(unique(decompBS$seasonal),type="l")
+month.abb
+plot(unique(decompBS$seasonal)~month.abb,type="l")
+seastrend<-rbind(unique(decompBS$seasonal),month.abb)
+seastend
+seastrend
+plot(seastrend)
+plot(unique(decompBS$seasonal),type="l", main="Seasonality Trend",ylab="Effect on Search",xlab="Month")
+plot(unique(decompBS$seasonal),type="l", main="Seasonality Trend",ylab="Effect on Search",xlab="Month")
+cor.test(Projdata)
+?cor.test
+cor.test(data.science,Bias,data=Projdata)
+cor.test(Data.science,Bias,data=Projdata)
+View(Projdata)
+cor.test(data.science,Bias,data=Projdata)
+cor.test(data.science,Bias,data=Projdata)
+cor.test(Projdata$data.science,Projdata$Bias)
+cor.test(Projdata$Behavioral.Science,Projdata$Nudge)
+cor.test(Projdata$data.science,Projdata$Behavioural.Insights)
+plot(data=Projdata,data.science,Behavioral.Insights)
+plot(Projdata$data.science,Projdata$Behavioural.Insights)
+abline(Projdata$Behavioural.Insights~Projdata$data.science)
+library(ggpubr)
+install.packages("ggpubr")
+?ggscatter
+library(ggpubr)
+ggscatter(x=Projdata$data.science,y=Projdata$Behavioural.Insights)
+ggscatter(Projdata,x=data.science,y=Behavioural.Insights)
+ggscatter(Projdata,x="data.science",y="Behavioural.Insights")
+ggscatter(Projdata,x="data.science",y="Behavioural.Insights", add="reg.line")
+ggscatter(Projdata,x="data.science",y="Behavioural.Insights", add="reg.line",cor.coef = TRUE)
+?xy.labels
+?plot
+?plot.ts
+plot(TSdata, main = "Trends For All Search Terms",offset=0.5,cex=0.8)
+warnings()
+plot(TSdata, main = "Trends For All Search Terms",axes=FALSE)
+plot(TSdata, main = "Trends For All Search Terms",mar.multi = c(2,2,2))
+plot(TSdata, main = "Trends For All Search Terms",mar.multi = c(2,3,2))
+plot(TSdata, main = "Trends For All Search Terms",mar.multi = c(4,2))
+plot(TSdata, main = "Trends For All Search Terms",mar.multi = c(2,4))
+?par
+plot(TSdata, main = "Trends For All Search Terms",cex.lab="2")
+plot(TSdata, main = "Trends For All Search Terms",cex.lab="1")
+plot(TSdata, main = "Trends For All Search Terms",cex.lab="10")
+plot(TSdata, main = "Trends For All Search Terms",)
+plot(TSdata, main = "Trends For All Search Terms",las=1)
+plot(TSdata, main = "Trends For All Search Terms",las=1,cex=0.8)
+plot(TSdata, main = "Trends For All Search Terms",las=1,cex=0.1)
+plot(TSdata, main = "Trends For All Search Terms",las=1,cex.lab=0.1)
+plot(TSdata, main = "Trends For All Search Terms",las=1,cex.lab=0.8)
+plot(TSdata, main = "Trends For All Search Terms",las=1,cex.lab=0.5)
+par(mar=c(5,6,4,1)+0.1)
+plot(TSdata, main = "Trends For All Search Terms",las=1,cex.lab=0.5)
+plot(TSdata, main = "Trends For All Search Terms",)
+par(mar=c(5,6,4,1)+0.5)
+plot(TSdata, main = "Trends For All Search Terms",las=1,cex.lab=0.5)
+par(mar=c(10,6,4,1)+0.5)
+plot(TSdata, main = "Trends For All Search Terms",las=1,cex.lab=0.5)
+par(mar=c(10,6,4,1)+10)
+plot(TSdata, main = "Trends For All Search Terms",las=1,cex.lab=0.5)
+par(mar=c(5,6,4,3)+0.1)
+plot(TSdata, main = "Trends For All Search Terms",las=1,cex.lab=0.5)
+par(mar=c(5,6,4,10)+0.1)
+plot(TSdata, main = "Trends For All Search Terms",las=1,cex.lab=0.5)
+par(mar=c(5,6,10,10)+0.1)
+plot(TSdata, main = "Trends For All Search Terms",las=1,cex.lab=0.5)
+par(mar=c(5,10,10,10)+0.1)
+par(mar=c(10,10,10,10)+10)
+plot(TSdata, main = "Trends For All Search Terms",las=1,cex.lab=0.5)
+MyData <- read.csv("~/Downloads/NewData.csv")
+vdata<-read.csv("~/Downloads/Leadernew.csv")
+cheatvdata<-subset.data.frame(vdata,follower_cheat!=0)
+vdata1<-subset.data.frame(vdata,condition==1)
+vdata2<-subset.data.frame(vdata,condition==2)
+vdata3<-subset.data.frame(vdata,condition==3)
+cheatvdata1<-subset.data.frame(cheatvdata,condition==1)
+cheatvdata2<-subset.data.frame(cheatvdata,condition==2)
+cheatvdata3<-subset.data.frame(cheatvdata,condition==3)
+MyData$reportavg<-(MyData$report2+MyData$report3+MyData$report4+MyData$report5+MyData$report6+MyData$report7)/6
+MyData$rollavg<-(MyData$Roll.2A+MyData$Roll.2B+MyData$Roll.3A+MyData$Roll.3B+MyData$Roll.4A+MyData$Roll.4B+MyData$Roll.5A+MyData$Roll.5B+MyData$Roll.6A+MyData$Roll.6B+MyData$Roll.7A+MyData$Roll.7B)/6
+MyData$CheatTotal<-MyData$reportavg-MyData$rollavg
+MyData$difference1<-(MyData$report1-(MyData$Roll.1A+MyData$Roll.1B))
+MyData$difference2<-(MyData$report2-(MyData$Roll.2A+MyData$Roll.2B))
+MyData$difference3<-(MyData$report3-(MyData$Roll.3A+MyData$Roll.3B))
+MyData$difference4<-(MyData$report4-(MyData$Roll.4A+MyData$Roll.4B))
+MyData$difference5<-(MyData$report5-(MyData$Roll.5A+MyData$Roll.5B))
+MyData$difference6<-(MyData$report6-(MyData$Roll.6A+MyData$Roll.6B))
+MyData$difference7<-(MyData$report7-(MyData$Roll.7A+MyData$Roll.7B))
+MyData$TotalCheating<-(MyData$difference2+MyData$difference3+MyData$difference4+MyData$difference5+MyData$difference6+MyData$difference7)
+Control<-subset.data.frame(MyData,MyData$teamID==1|MyData$teamID==4|MyData$teamID==6|MyData$teamID==10|MyData$teamID==13|MyData$teamID==14|MyData$teamID==19|MyData$teamID==22|MyData$teamID==25|MyData$teamID==28|MyData$teamID==31|MyData$teamID==34|MyData$teamID==34|MyData$teamID==37|MyData$teamID==40|MyData$teamID==43|MyData$teamID==48|MyData$teamID==49|MyData$teamID==52)
+LowCheat<-subset.data.frame(MyData,MyData$teamID==2|MyData$teamID==5|MyData$teamID==8|MyData$teamID==11|MyData$teamID==15|MyData$teamID==16|MyData$teamID==20|MyData$teamID==23|MyData$teamID==26|MyData$teamID==29|MyData$teamID==32|MyData$teamID==35|MyData$teamID==38|MyData$teamID==41|MyData$teamID==44|MyData$teamID==47|MyData$teamID==50|MyData$teamID==53)
+HighCheat<-subset.data.frame(MyData,MyData$teamID==3|MyData$teamID==7|MyData$teamID==9|MyData$teamID==12|MyData$teamID==17|MyData$teamID==18|MyData$teamID==19|MyData$teamID==21|MyData$teamID==24|MyData$teamID==27|MyData$teamID==30|MyData$teamID==33|MyData$teamID==36|MyData$teamID==39|MyData$teamID==42|MyData$teamID==45|MyData$teamID==46|MyData$teamID==51|MyData$teamID==54)
+Control$Condition<-"Control"
+LowCheat$Condition<-"Low Cheat"
+HighCheat$Condition<-"High Cheat"
+ExpData<-rbind(Control,LowCheat,HighCheat)
+LeaderCheated<-subset.data.frame(ExpData, ExpData$leadercheat=="Yes")
+LeaderNoCheat<-subset.data.frame(ExpData, ExpData$leadercheat=="No")
+cheaters<-subset.data.frame(ExpData,ExpData$CheatTotal!=0)
+noncheaters<-subset.data.frame(ExpData,ExpData$CheatTotal==0)
+library(ggplot2)
+library(car)
+library(gplots)
+summary(cheaters$TotalCheating)
+summary(cheaters$TotalCheating|cheaters$Condition)
+summary(cheaters$TotalCheating~cheaters$Condition)
+sd(cheaters$TotalCheating~cheaters$Condition)
+NewData<-read.csv("~/Downloads/New_Dataset.csv")
+MyData <- read.csv("~/Downloads/NewData.csv")
+vdata<-read.csv("~/Downloads/Leadernew.csv")
+cheatvdata<-subset.data.frame(vdata,follower_cheat!=0)
+vdata1<-subset.data.frame(vdata,condition==1)
+vdata2<-subset.data.frame(vdata,condition==2)
+vdata3<-subset.data.frame(vdata,condition==3)
+cheatvdata1<-subset.data.frame(cheatvdata,condition==1)
+cheatvdata2<-subset.data.frame(cheatvdata,condition==2)
+cheatvdata3<-subset.data.frame(cheatvdata,condition==3)
+MyData$reportavg<-(MyData$report2+MyData$report3+MyData$report4+MyData$report5+MyData$report6+MyData$report7)/6
+MyData$rollavg<-(MyData$Roll.2A+MyData$Roll.2B+MyData$Roll.3A+MyData$Roll.3B+MyData$Roll.4A+MyData$Roll.4B+MyData$Roll.5A+MyData$Roll.5B+MyData$Roll.6A+MyData$Roll.6B+MyData$Roll.7A+MyData$Roll.7B)/6
+MyData$CheatTotal<-MyData$reportavg-MyData$rollavg
+MyData$difference1<-(MyData$report1-(MyData$Roll.1A+MyData$Roll.1B))
+MyData$difference2<-(MyData$report2-(MyData$Roll.2A+MyData$Roll.2B))
+MyData$difference3<-(MyData$report3-(MyData$Roll.3A+MyData$Roll.3B))
+MyData$difference4<-(MyData$report4-(MyData$Roll.4A+MyData$Roll.4B))
+MyData$difference5<-(MyData$report5-(MyData$Roll.5A+MyData$Roll.5B))
+MyData$difference6<-(MyData$report6-(MyData$Roll.6A+MyData$Roll.6B))
+MyData$difference7<-(MyData$report7-(MyData$Roll.7A+MyData$Roll.7B))
+MyData$TotalCheating<-(MyData$difference2+MyData$difference3+MyData$difference4+MyData$difference5+MyData$difference6+MyData$difference7)
+Control<-subset.data.frame(MyData,MyData$teamID==1|MyData$teamID==4|MyData$teamID==6|MyData$teamID==10|MyData$teamID==13|MyData$teamID==14|MyData$teamID==19|MyData$teamID==22|MyData$teamID==25|MyData$teamID==28|MyData$teamID==31|MyData$teamID==34|MyData$teamID==34|MyData$teamID==37|MyData$teamID==40|MyData$teamID==43|MyData$teamID==48|MyData$teamID==49|MyData$teamID==52)
+LowCheat<-subset.data.frame(MyData,MyData$teamID==2|MyData$teamID==5|MyData$teamID==8|MyData$teamID==11|MyData$teamID==15|MyData$teamID==16|MyData$teamID==20|MyData$teamID==23|MyData$teamID==26|MyData$teamID==29|MyData$teamID==32|MyData$teamID==35|MyData$teamID==38|MyData$teamID==41|MyData$teamID==44|MyData$teamID==47|MyData$teamID==50|MyData$teamID==53)
+HighCheat<-subset.data.frame(MyData,MyData$teamID==3|MyData$teamID==7|MyData$teamID==9|MyData$teamID==12|MyData$teamID==17|MyData$teamID==18|MyData$teamID==19|MyData$teamID==21|MyData$teamID==24|MyData$teamID==27|MyData$teamID==30|MyData$teamID==33|MyData$teamID==36|MyData$teamID==39|MyData$teamID==42|MyData$teamID==45|MyData$teamID==46|MyData$teamID==51|MyData$teamID==54)
+Control$Condition<-"Control"
+LowCheat$Condition<-"Low Cheat"
+HighCheat$Condition<-"High Cheat"
+ExpData<-rbind(Control,LowCheat,HighCheat)
+LeaderCheated<-subset.data.frame(ExpData, ExpData$leadercheat=="Yes")
+LeaderNoCheat<-subset.data.frame(ExpData, ExpData$leadercheat=="No")
+cheaters<-subset.data.frame(ExpData,ExpData$CheatTotal!=0)
+noncheaters<-subset.data.frame(ExpData,ExpData$CheatTotal==0)
+highcheatcheaters<-subset.data.frame(cheaters,cheaters$Condition=="High Cheat")
+lowcheatcheaters<-subset.data.frame(cheaters,cheaters$Condition=="Low Cheat")
+controlcheaters<-subset.data.frame(cheaters,cheaters$Condition=="Control")
+library(ggplot2)
+library(car)
+library(gplots)
+View(NewData)
+?lm
+lm(follower_cheat~factor(condition)+factor(race)+factor(gender)+factor(schoolyear)+age+leader_cheat,data=NewData)
+summary(lm(follower_cheat~factor(condition)+factor(race)+factor(gender)+factor(schoolyear)+age+leader_cheat,data=NewData))
+summary(lm(follower_cheat~leader_cheat,data=NewData))
+plot(data=NewData,follow_cheat,leader_cheat)
+plot(data=NewData,follower_cheat,leader_cheat)
+plot(NewData$follower_cheat,NewData$leader_cheat)
+plot(NewData$follower_cheat~NewData$leader_cheat)
+reg<-lm(follower_cheat~leader_cheat,data=NewData)
+abline(reg = )
+abline(reg)
+summary(lm(follower_cheat~factor(condition)+factor(race)+factor(gender)+factor(schoolyear)+teamID+participantID+age+leader_cheat,data=NewData))
+ID<-lm(follower_cheat~teamID+participantID,data=NewData)
+plot(NewData$follower_cheat~NewData$participantID)
+plot(NewData$follower_cheat~NewData$teamID)
+abline(ID)
+plot(NewData$follower_cheat~NewData$teamID+NewData$participantID)
+plot(NewData$follower_cheat~NewData$teamID)
+reg<-lm(follower_cheat~leader_cheat,data=NewData,reg=TRUE)
+plot(NewData$follower_cheat~NewData$leader_cheat,reg=TRUE)
+plot(NewData$follower_cheat~NewData$leader_cheat,add="reg.line")
+plot(NewData$follower_cheat)
+mostsig<-lm(follower_cheat~factor(schoolyear)+factor(condition),data=NewData)
+abline(mostsig)
+summary(mostsig)
+install.packages("stargazer")
+0.96*88
+msr<-13835/48
+45915/msr
+6/17
+5/6
+1/6
+11/4.79
+dog<-c(1,2,3,4,5,6,6,7,7,7,7,7,7,8)
+cat<-dog<=4
+cat
+2.14333-0.28258+0.10076-0.26984
+w<-45.9767-1.589-8.9380+4.5320
+m<-45.9767-3.7146
+w
+m
+m-w
+j<-45.9767-5.3680-8.9380+9.0543
+j
+60-j
+B<-c(275,255,283,261,263)
+A<-c(264,262,260,252,259)
+p<-rbind(B,A)
+p
+wilcox.test(p$A,p$B)
+wilcox.test(p)
+summary(wilcox.test(p)
+)
+test<-wilcox.test(p)
+z<-qnorm(test$p.value/2)
+z
+wilcox.test(A,B)
+test<-wilcox.test(A,B)
+z<-qnorm(test$p.value/2)
+z
+log(1.69)
+e^1.69
+setwd("/media/removable/SD Card/R/Project")
+library(rmarkdown)
+render_site()
+render_site(website.yml)
+?render_site
+render_site(input="website.yml")
+setwd("/media/removable/SD Card/R/Project")
+render_site()
+render_site(wd)
+render_site()

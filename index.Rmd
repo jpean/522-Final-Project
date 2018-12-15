@@ -1,0 +1,12 @@
+---
+title: "Background & Introduction"
+output: html_document
+---
+
+
+  I am looking at different word usage through google searches. By using data from Google trends I can look to see the overall trends of word searchs as well as look at some correlations. The plan for this project is to use these trends/correlations to better understand the current popularity of behavioral science. As a student in a Master of Behavioral and Decision Sciences, I am in part drawn to this subject because the likelihood of finding a job in this new field depends on the growing popularity. I am hoping to find that terms like "Behavioral Science" are on the rise in popularity. I will also be looking at popular terms surrounding the field which would be nice to know for gaining a better understanding of what people are really think of this field and what tools they expect. For example, looking at words like "Nudge" and "Bias". Additionally, looking at some job titles related to this work like "Behavioral Scientist" or "Data Scientist". Lastly I hope to look at different time periods that may have higher usage, whether that be seasonal or resulting from acute events like Richard Thaler winning the Nobel Prize (cannot look at Kahneman's Nobel because Google Trend data only goes back until 2004). 
+  
+***Important Notes***
+  
+  * Unfortunately, this data is only relative popularity. That is to say, the numbers are not about objective popularity, just their popularity at the time considered to other moments in history. Thus we can only look at trends and timing, not actual popularity.
+  * This is all a correlation exploration

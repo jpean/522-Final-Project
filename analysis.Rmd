@@ -1,0 +1,102 @@
+---
+title: "Trends & Correlations"
+output: html_document
+---
+
+```{r setup, echo=FALSE}
+library(ggplot2)
+library(gtrendsR)
+library(corrplot)
+library(ggpubr)
+Projdata <- read.csv("~/Downloads/Project Data - Sheet1.csv")
+TSdata <- ts(Projdata,frequency = 12,start=c(2004,1))
+BSTrend <- gtrends(c("Behavioral Science"),time="all")
+BSTrend <- ts(BSTrend$interest_over_time$hits,frequency = 12,start=c(2004,1))
+BSSeason <- gtrends(c("Behavioral Science"),time="2004-1-01 2009-12-31")
+BSSeason <- ts(BSSeason$interest_over_time$hits,frequency = 12,start=c(2004,1))
+```
+
+###Trends
+
+**Decomposition of Behavioral Science**
+
+```{r decomp, echo=FALSE}
+decompBS <- decompose(BSTrend)
+plot(decompBS)
+plot(unique(decompBS$seasonal),type="l", main="Seasonality Trend",ylab="Effect on Search",xlab="Month")
+```
+
+**General Trends**
+
+*Behavioral vs Behavioural Science*
+
+```{r worldtrends, echo=FALSE}
+worldtrend<-gtrends(c("Behavioral Science","Behavioural Science"),time="all")
+plot(worldtrend)
+```
+
+*Behavioral Science in America, Great Britain, and Canada*
+
+```{r countrytrends, echo=FALSE}
+countrytrend<-gtrends(c("Behavioral Science"),geo=c("US","GB","CA"),time="all")
+plot(countrytrend)
+```
+
+*Behavioral vs Behavioural Insights*
+
+```{r insightstrends, echo=FALSE}
+diworldtrend<-gtrends(c("Behavioral Insights","Behavioural Insights"),time="all")
+plot(diworldtrend)
+```
+
+*Behavioral Insights in America, Great Britain, and Canada*
+
+```{r cinsightstrends, echo=FALSE}
+dicountrytrend<-gtrends(c("Behavioural Insights"),geo=c("US","GB","CA"),time="all")
+plot(dicountrytrend)
+```
+
+*Data vs Behavior*
+
+```{r datatrends, echo=FALSE}
+dsworldtrend<-gtrends(c("Data Science","Data Scientist","Behavioral Scientist"," Behavioral Science"),time="all")
+plot(dsworldtrend)
+```
+
+*Data Science in America, Great Britain, and Canada*
+
+```{r worlddatatrends, echo=FALSE}
+dscountrytrend<-gtrends(c("Data Science"),geo=c("US","GB","CA"),time="all")
+plot(dscountrytrend)
+```
+
+*All Term Trends*
+
+```{r termtrends, echo=FALSE}
+plot(TSdata, main = "Trends For All Search Terms",las=1,cex.lab=0.5)
+```
+
+###Correlations
+
+*Numbers Then Visualization*
+
+```{r correlations, echo=FALSE}
+cormat<-cor(Projdata)
+corrplot(cormat,method='circle')
+```
+
+**Points of interest**
+ 
+ * Behavioural Insights (more than behavioral insights) correlation with data science (and data scientist)
+ * Data science (and data scientist) & bias are pretty strongly correlated
+ * Behavioral Science has some negative correlation with Nudge
+
+```{r correlationplots, echo=FALSE}
+ggscatter(Projdata,x="data.science",y="Behavioural.Insights", add="reg.line",cor.coef = TRUE, main="Correlation of Data Science & Behavioural Insights", ylab="Behavioural Insights",xlab="Data Science")
+
+
+ggscatter(Projdata,x="data.science",y="Bias", add="reg.line",cor.coef = TRUE, main="Correlation of Data Science & Bias", xlab="Data Science")
+
+
+ggscatter(Projdata,x="Behavioral.Science",y="Nudge", add="reg.line",cor.coef = TRUE, main="Correlation of Behavioral Science & Nudge",xlab="Behavioral Science")
+```

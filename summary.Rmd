@@ -1,0 +1,6 @@
+---
+title: "Summary of Findings"
+output: html_document
+---
+
+Well. Behavioral Science is not on the rise when it comes to Google searches. However, data science is growing fast and behavioral insights appear to have a good correlation with that. The overall impact of this finding is that Behavioral Scientists do not appear to be trending toward becoming an independent position. Instead, data scientists are being asked to better understand, interpret, and create insights with behavioral data. For programs like University of Pennsylvania's Master of Behavioral and Decision Science this indicates that they should focus on educating their students on quantitative skills.
